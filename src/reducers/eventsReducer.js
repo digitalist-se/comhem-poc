@@ -1,14 +1,14 @@
-export default function channels(state = {
-  channels: [],
+export default function events(state = {
+  events: [],
   fetched: false
 }, action) {
     //////////////////////////////////////////
     // INITIAL FETCH OF DATA
     //////////////////////////////////////////
-    if (action.type === "CHANNELS_FETCHED") {
+    if (action.type === "EVENTS_FETCHED") {
       return {
         ...state,
-        channels: action.payload.channels,
+        events: action.payload.events,
         fetched: true
       }
     }

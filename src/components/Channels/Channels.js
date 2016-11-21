@@ -3,7 +3,6 @@ import Channel from '../Channel/Channel';
 import { connect } from "react-redux";
 import { getChannels } from "../../actions/channelActions";
 
-
 class Channels extends React.Component {
 
   componentWillMount() {
@@ -12,7 +11,6 @@ class Channels extends React.Component {
 
   render() {
     const { channels, fetched} = this.props.channels;
-    console.log(fetched+" är fetched");
 
     return (
       <div>
@@ -24,6 +22,7 @@ class Channels extends React.Component {
               return <Channel
                key={i}
                title={channel.name}
+               prgSvcID={channel.prgSvcID}
                />;
             }) : null
           }

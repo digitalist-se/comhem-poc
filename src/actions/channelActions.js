@@ -1,15 +1,13 @@
 import axios from "axios";
 
 export function getChannels() {
-  console.log("Kallas på");
   return function(dispatch) {
-    axios.get("../api/fake.json")
+    axios.get("../api/channels.json")
     .then((response) => {
-      dispatch({type: "DATA_FETCHED", payload: response.data})
+      dispatch({type: "CHANNELS_FETCHED", payload: response.data})
     })
     .catch((err) => {
-      dispatch({type: "DATA_REJECTED", payload: err})
+      dispatch({type: "CHANNELS_REJECTED", payload: err})
     })
   }
-
 }
