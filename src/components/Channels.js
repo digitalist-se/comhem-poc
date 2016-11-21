@@ -16,16 +16,17 @@ class Channels extends React.Component {
     return (
       <div>
       <h2>Kanaler</h2>
-      {
-        fetched ?
-        channels.map( function (channel, i) {
-        return <Channel
-         key = {i}
-         title = {channel.title}
-         />;
-       }.bind(this)) : null
-      }
-
+      <ul className="Channels">
+        {
+          fetched ?
+          channels.map( function (channel, i) {
+            return <Channel
+             key={i}
+             title={channel.title}
+             />;
+          }) : null
+        }
+      </ul>
 
 
 
