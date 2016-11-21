@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export function getChannels() {
+  console.log("Kallas på");
   return function(dispatch) {
     axios.get("../api/fake.json")
     .then((response) => {

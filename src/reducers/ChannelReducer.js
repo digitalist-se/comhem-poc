@@ -1,29 +1,17 @@
-export default function reducer(state = [{
- channel: 5,
- author: "Vilhelm Falkenmark"
-}], action) {
+export default function reducer(state = {
+  channels: [],
+  fetched: false
+}, action) {
     //////////////////////////////////////////
-    ///////// ADD SKILL
+    // INITIAL FETCH OF DATA
     //////////////////////////////////////////
-    if (action.type === "ADD_SKILL") {
-     return state.concat(action.payload);
+    if (action.type === "DATA_FETCHED") {
+      console.log("kommer in här");
+     return {
+      ...state,
+      channels: action.payload,
+      fetched: true
+     }
     }
-    //////////////////////////////////////////
-    ///////// EDIT SKILL
-    //////////////////////////////////////////
-    else if (action.type === "EDIT_SKILL") {
-     return state.map(function(skill,index) {
-      if(index !== action.payload.index) {
-       return skill
-      }
-      return {
-       ...skill,
-      level: skill.level + action.payload.int
-     };
-     })
-    }
-    //////////////////////////////////////////
-    ///////// DELETE SKILL
-    //////////////////////////////////////////
     return state;
 }

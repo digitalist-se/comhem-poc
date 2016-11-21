@@ -5,9 +5,9 @@ class Channel extends React.Component {
     const { title } = this.props;
 
     return (
-      <div className="Channel">
+      <li className="Channel">
         { title }
-      </div>
+      </li>
     )
   }
 }
