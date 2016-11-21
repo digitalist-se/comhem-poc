@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Match, Miss } from 'react-router';
+import Channels from './components/Channels';
+// import data from './data';
 // import './App.css';
 import { connect } from 'react-redux';
 
@@ -14,7 +16,7 @@ class App extends Component {
       <div className="App">
         <h1>Comhem POC</h1>
         <p>{author}</p>
-        <button></button>
+        {/*<Channels channels={data.channels} />*/}
       </div>
       </Router>
 
