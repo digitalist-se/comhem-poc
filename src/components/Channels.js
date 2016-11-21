@@ -12,7 +12,6 @@ class Channels extends React.Component {
 
   render() {
     const { channels, fetched} = this.props.channels;
-    console.log(fetched+" är fetched");
     return (
       <div>
       <h2>Kanaler</h2>

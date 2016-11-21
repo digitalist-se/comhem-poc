@@ -6,10 +6,6 @@
 4. Run npm start for the development server
 5. Go to localhost:3000 in your browser
 
-## Nunjucks
-
-We are using nunjucks as a templating engine to create modular html.
-
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

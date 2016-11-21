@@ -4,7 +4,7 @@
 @mixin vesslan($span, $col, $margin: 0) {
   $percentage: percentage($span/$col);
   width: calc(#{$percentage} - #{$margin});
-}
+} 
 
 ////////////////////////////////
 // Margin
