@@ -3,7 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.7.0"
+    "react-scripts": "0.7.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "run-sequence": "^1.1.4",
+    "sassdoc": "^2.1.15"
   },
   "dependencies": {
     "axios": "^0.15.2",
