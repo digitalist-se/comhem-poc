@@ -8,7 +8,7 @@ export default function reducer(state = {
     if (action.type === "DATA_FETCHED") {
      return {
       ...state,
-      channels: action.payload,
+      channels: action.payload.channels,
       fetched: true
      }
     }
