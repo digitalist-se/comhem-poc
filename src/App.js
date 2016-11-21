@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Match, Miss } from 'react-router';
 import Channels from './components/Channels';
 // import data from './data';
-// import './App.css';
+import '../css/stylesheet.css'; 
 // import { connect } from 'react-redux';
 
 export default class App extends React.Component {
@@ -24,5 +24,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-// export default App;
