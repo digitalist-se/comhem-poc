@@ -1,22 +1,24 @@
-[
-  {
-    "id": 1,
-    "title": "Kanal 1"
-  },
-  {
-    "id": 2,
-    "title": "Kanal 2"
-  },
-  {
-    "id": 3,
-    "title": "Kanal 3"
-  },
-  {
-    "id": 3,
-    "title": "Kanal 4"
-  },
-  {
-    "id": 4,
-    "title": "Kanal 5"
-  }
-]
+{
+  "channels":[
+    {
+      "prgSvcID": 1,
+      "name": "Kanal 1"
+    },
+    {
+      "prgSvcID": 2,
+      "name": "Kanal 2"
+    },
+    {
+      "prgSvcID": 3,
+      "name": "Kanal 3"
+    },
+    {
+      "prgSvcID": 4,
+      "name": "Kanal 4"
+    },
+    {
+      "prgSvcID": 5,
+      "name": "Kanal 5"
+    }
+  ]
+}

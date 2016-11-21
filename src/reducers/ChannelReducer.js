@@ -9,7 +9,7 @@ export default function reducer(state = {
       console.log("kommer in här");
      return {
       ...state,
-      channels: action.payload,
+      channels: action.payload.channels,
       fetched: true
      }
     }

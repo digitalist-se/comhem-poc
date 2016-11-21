@@ -402,4 +402,23 @@ template {
 [hidden] {
   display: none; }
 
+body {
+  background-color: #f0faf5; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+.Channel {
+  background-color: #e6ebe6;
+  margin-bottom: 30px;
+  padding: 30px; }
+
+.Site-grid {
+  max-width: 1200px;
+  margin: 0 auto; }
+
 /*# sourceMappingURL=stylesheet.css.map */
