@@ -10,7 +10,8 @@
     "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "run-sequence": "^1.1.4",
-    "sassdoc": "^2.1.15"
+    "sassdoc": "^2.1.15",
+    "express": "^4.14.0"
   },
   "dependencies": {
     "axios": "^0.15.2",
@@ -21,12 +22,14 @@
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-promise-middleware": "^3.2.0",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "request": "^2.79.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "proxy": "node  proxy.js"
   }
 }
