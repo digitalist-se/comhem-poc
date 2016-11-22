@@ -1,0 +1,26 @@
+{
+  "channelsTag": "2024188545",
+  "channels":
+   [ { "prgSvcID": 69430,
+       "channelNumber": "001",
+       "name": "SVT1",
+       "imageOnDarkURL": "https://api-staging.tv.comhem.se/api/image/channel/69430/b",
+       "imageOnLightURL": "https://api-staging.tv.comhem.se/api/image/channel/69430/w",
+       "encodings": "[Object]",
+       "qualifiers": "[Object]" },
+     { "prgSvcID": 69431,
+       "channelNumber": "002",
+       "name": "SVT2",
+       "imageOnDarkURL": "https://api-staging.tv.comhem.se/api/image/channel/69431/b",
+       "imageOnLightURL": "https://api-staging.tv.comhem.se/api/image/channel/69431/w",
+       "encodings": [Object],
+       "qualifiers": [Object] },
+     { "prgSvcID": 76805,
+       "channelNumber": "003",
+       "name": "TV3",
+       "imageOnDarkURL": "https://api-staging.tv.comhem.se/api/image/channel/76805/b",
+       "imageOnLightURL": "https://api-staging.tv.comhem.se/api/image/channel/76805/w",
+       "encodings": "[Object]",
+       "qualifiers": "[Object]" }
+     ]
+  }

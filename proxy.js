@@ -2,41 +2,46 @@ const express = require("express");
 const path = require("path");
 const port = process.env.PORT || 8080;
 const app = express();
+const request = require('request');
 
-var request = require('request');
+// var Agent = require('socks5-http-client/lib/Agent');
 
-app.use(express.static(__dirname+'/public'));
+app.use(express.static(__dirname+'/public/proxy.html'));
 app.get("*", (req, res) => {
  res.sendFile(path.resolve(__dirname+'/public',"proxy.html"))
- // res.send('Hello World!!!!');
+
+  request
+    .get('https://api-staging.tv.comhem.se/webapi/system', options)
+    .on('response', (response) => {
+      // res.send(response.toJSON());
+      console.log(response.toJSON());
+    });
+  // res.send(request(options, callback));
+
+
 });
 
 
 var options = {
-  url: 'https://api-staging.tv.comhem.se/webapi/customer',
+  url: 'https://api-staging.tv.comhem.se/webapi/channel',
   headers: {
-    'webapi-version' : 99,
+    'webapi-version' : "99",
     'api-key': "HZvTr4YV8B"
   }
 };
-
-
 
 function callback(error, response, body) {
   if (!error && response.statusCode == 200) {
     var info = JSON.parse(body);
     // app.set(info)
-    // console.log(info);
-    // console.log(info.forks_count + " Forks");
+    console.log(info);
+    // return info;
+  } else {
+    console.log("Det funkade inte");
   }
 }
 
-// request(options, callback);
-// request(options, callback).pipe(request.put('localhost:8080'))
-
-request('http://google.com/doodle.png').pipe(fs.createWriteStream('doodle.png'))
-
-
+request.get(options, callback);
 
 app.listen(port);
-console.log("Server started");
+console.log("Server started!");
