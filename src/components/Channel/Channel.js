@@ -10,7 +10,6 @@ class Channel extends React.Component {
 
   render() {
     const { title, prgSvcID, events, fetched } = this.props;
-    console.log(events);
 
     return (
       <li className="Channel">
@@ -30,7 +29,8 @@ class Channel extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    events: state.events
+    events: state.events.events,
+    fetched: state.events.fetched
   }
 }
 
