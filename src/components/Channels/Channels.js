@@ -20,6 +20,7 @@ class Channels extends React.Component {
             fetched ?
             channels.map( function (channel, i) {
               return <Channel
+
                 key={i}
                 title={channel.name}
                 prgSvcID={channel.prgSvcID}
