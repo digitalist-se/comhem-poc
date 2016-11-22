@@ -9,7 +9,7 @@ export default function events(state = {
 
       return {
         ...state,
-        events: action.payload,
+        events: action.payload.events,
         fetched: true
       }
     }
