@@ -3,15 +3,14 @@ import { connect } from "react-redux";
 import { getEvents } from "../../actions/eventsActions";
 
 class Channel extends React.Component {
-
   componentWillMount() {
     this.props.dispatch(getEvents());
   }
 
   render() {
     const { title, prgSvcID, events } = this.props;
-    const channelEvents = events.events;
     const fetched = events.fetched;
+    const filteredEvents = events.events.filter(  i => i.prgSvcID === prgSvcID );
 
     return (
       <li className="Channel">
@@ -19,7 +18,7 @@ class Channel extends React.Component {
         <ul className="Events">
           {
             fetched ?
-            channelEvents.map( function (event, i) {
+            filteredEvents.map( function (event, i) {
               return <li key={i} className="Events-item">{event.description}</li>;
             }) : null
           }
