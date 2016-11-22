@@ -9,19 +9,23 @@ class Channel extends React.Component {
   }
 
   render() {
-    const { title, prgSvcID, events, fetched } = this.props;
-    console.log(events);
+    // const {events, fetched } = this.props;
+    const {channelName } = this.props;
+    // console.log(fetched);
+
+
 
     return (
       <li className="Channel">
-        { title }
+        { channelName }
+
         <ul className="Events">
-          {
+          {/*{
             fetched ?
             events.map( function (event, i) {
               return <li key={i}>{event.description}</li>;
             }) : null
-          }
+          }*/}
         </ul>
       </li>
     )

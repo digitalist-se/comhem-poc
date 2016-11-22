@@ -6,9 +6,10 @@ export default function events(state = {
     // INITIAL FETCH OF DATA
     //////////////////////////////////////////
     if (action.type === "EVENTS_FETCHED") {
+
       return {
         ...state,
-        events: action.payload.events,
+        events: action.payload,
         fetched: true
       }
     }

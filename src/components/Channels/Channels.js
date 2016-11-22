@@ -21,7 +21,7 @@ class Channels extends React.Component {
             channels.map( function (channel, i) {
               return <Channel
                key={i}
-               title={channel.name}
+               channelName = {channel.name}
                prgSvcID={channel.prgSvcID}
                />;
             }) : null
