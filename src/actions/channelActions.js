@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export function getChannels() {
   return function(dispatch) {
     // axios.get("localhost:8080")

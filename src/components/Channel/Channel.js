@@ -1,38 +1,23 @@
 import React from 'react';
-import { connect } from "react-redux";
-import { getEvents } from "../../actions/eventsActions";
 
-class Channel extends React.Component {
-  componentWillMount() {
-    this.props.dispatch(getEvents());
-  }
+export default class Channel extends React.Component {
 
   render() {
-    const { channelName, prgSvcID, events } = this.props;
-    const fetched = events.fetched;
-    const filteredEvents = events.events.filter(  i => i.prgSvcID === prgSvcID );
-    console.log(filteredEvents);
-
+    const { channelName, prgSvcID, events, darkImage, lightImage, qualifiers } = this.props;
+    // const fetched = events.fetched;
+    // const filteredEvents = events.events.filter(  i => i.prgSvcID === prgSvcID );
+    // console.log(filteredEvents);
+    
     return (
       <li className="Channel">
-        { channelName }
-        <ul className="Events">
-          {
-            fetched ?
-            filteredEvents.map( function (event, i) {
-              return <li key={i} className="Events-item">{event.description}</li>;
-            }) : null
-          }
-        </ul>
+        <div className="Channel-col-icon">
+        <img src= {lightImage} />
+        </div>
+        <div className="Channel-col-preview">
+
+        </div>
+
       </li>
     )
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    events: state.events
-  }
-}
-
-export default connect(mapStateToProps)(Channel);

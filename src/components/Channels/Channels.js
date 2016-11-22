@@ -20,9 +20,12 @@ class Channels extends React.Component {
             fetched ?
             channels.map( function (channel, i) {
               return <Channel
-                key={i}
-                channelName={channel.name}
-                prgSvcID={channel.prgSvcID}
+                key= {i}
+                channelName= {channel.name}
+                prgSvcID= {channel.prgSvcID}
+                qualifiers = {channel.qualifiers}
+                darkImage = {channel.imageOnDarkURL}
+                lightImage = {channel.imageOnLightURL}
                 />;
             }) : null
           }
