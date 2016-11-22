@@ -9,7 +9,9 @@ class Channel extends React.Component {
   }
 
   render() {
-    const { title, prgSvcID, events, fetched } = this.props;
+    const { title, prgSvcID, events } = this.props;
+    const channelEvents = events.events;
+    const fetched = events.fetched;
 
     return (
       <li className="Channel">
@@ -17,8 +19,8 @@ class Channel extends React.Component {
         <ul className="Events">
           {
             fetched ?
-            events.map( function (event, i) {
-              return <li key={i}>{event.description}</li>;
+            channelEvents.map( function (event, i) {
+              return <li key={i} className="Events-item">{event.description}</li>;
             }) : null
           }
         </ul>
@@ -29,8 +31,7 @@ class Channel extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    events: state.events.events,
-    fetched: state.events.fetched
+    events: state.events
   }
 }
 
