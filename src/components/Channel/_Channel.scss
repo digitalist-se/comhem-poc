@@ -1,20 +1,46 @@
 .Channel {
   background-color: $color-channel;
   margin-bottom: 20px;
-  padding: 20px;
   height: 160px;
   @include flex-row();
 }
+
 .Channel-col-icon {
-  @include flex-col(1,5,15px);
+  width: 160px;
   @include flex-position(center);
+
   img {
     display: block;
     max-width: 80%;
     max-height: 80px;
   }
 }
+
 .Channel-col-preview {
-  @include flex-col(4,5,15px);
-  background-color: red;
+  position: relative;
+  width: calc(100% - 160px);
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 0;
+}
+.Channel-col-preview-inner{
+  transition: all .2s ease;
+}
+
+.Channel-arrow {
+  background-color: blue;
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.Channel-arrow--right {
+  right: 0;
+}
+
+.Channel-arrow--left {
+  left: 0;
 }

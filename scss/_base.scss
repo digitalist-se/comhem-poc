@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: $color-background;
 }
@@ -10,7 +16,14 @@ ul {
 li {
   list-style: none;
 }
+
+h3 {
+  margin: 0;
+}
+
 .Site-grid {
   max-width: 1200px;
   margin: 0 auto;
+  padding-right: 15px;
+  padding-left: 15px;
 }
