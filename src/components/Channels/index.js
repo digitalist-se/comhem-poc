@@ -1,7 +1,7 @@
 import React from 'react';
-import Channel from '../Channel/Channel';
+import Channel from '../Channel/';
 import { connect } from "react-redux";
-import { getChannels } from "../../actions/channelActions";
+import { getChannels } from "../../actions/ChannelActions";
 
 class Channels extends React.Component {
 
@@ -11,6 +11,7 @@ class Channels extends React.Component {
 
   render() {
     const { channels, fetched} = this.props.channels;
+
 
     return (
       <div>

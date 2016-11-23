@@ -18,16 +18,31 @@ const allowCrossDomain = (req, res, next) => {
 // APP CONFIGURATION
 /////////////////////////////////////////////
 app.use(allowCrossDomain);
+
+
+
+
 app.use(express.static(__dirname+'/public/proxy.json'));
-app.get("*", (req, res) => {
+app.get("/channels", (req, res) => {
+ res.sendFile(path.resolve(__dirname+'/public',"proxy.json"))
+ console.log(apiResponse);
+ res.send(apiResponse);
+});
+app.get("/programs", (req, res) => {
  res.sendFile(path.resolve(__dirname+'/public',"proxy.json"))
  res.send(apiResponse);
 });
+
+
+
+
+
 /////////////////////////////////////////////
 // REQUEST
 /////////////////////////////////////////////
 var options = {
   url: 'https://api-staging.tv.comhem.se/webapi/channel',
+  // url: 'https://api-staging.tv.comhem.se/webapi/system',
   headers: {
     'webapi-version' : "99",
     'api-key': "HZvTr4YV8B"
@@ -41,5 +56,11 @@ const callback = (error, response, body) => {
   }
 }
 request.get(options, callback);
+
+
+
+
+
+
 app.listen(port);
 console.log("Server started!");

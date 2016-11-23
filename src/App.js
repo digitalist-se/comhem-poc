@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router';
-import Channels from './components/Channels/Channels';
+import Channels from './components/Channels/';
 // import data from './data';
 import '../css/stylesheet.css';
 // import { connect } from 'react-redux';
