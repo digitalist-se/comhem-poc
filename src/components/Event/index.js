@@ -3,7 +3,7 @@ import React from 'react';
 export default class Event extends React.Component {
 
   render() {
-    const { eventName, eventImage } = this.props;
+    const { eventName, eventImage, eventDesc } = this.props;
 
     return (
       <div className="Event">
@@ -12,6 +12,7 @@ export default class Event extends React.Component {
         </div>
         <div className="Event-info">
           <h3>{eventName}</h3>
+          <span className="Event-description">{eventDesc}</span>
         </div>
       </div>
     )

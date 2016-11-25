@@ -25,7 +25,7 @@ export default class Channel extends React.Component {
       })
     }
     else {
-      newSwipe -= 300;
+      newSwipe -= 600;
       this.setState({
         swipe: newSwipe
       })
@@ -52,6 +52,7 @@ export default class Channel extends React.Component {
                 key={i}
                 eventName={event.programName}
                 eventImage={event.imageURL}
+                eventDesc={event.description}
                 />
             })}
           </div>

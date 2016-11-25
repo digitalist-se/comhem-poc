@@ -41,7 +41,7 @@ app.get("/programs", (req, res) => {
 // REQUEST
 /////////////////////////////////////////////
 var options = {
-  url: 'http://83.255.232.105:8080/webapi/events/current',
+  url: 'http://83.255.232.105:8080/webapi/events/current?forwardCount=2',
   // url: 'https://api-staging.tv.comhem.se/webapi/system',
   headers: {
     'webapi-version' : "99",
