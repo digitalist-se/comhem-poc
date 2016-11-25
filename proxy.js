@@ -41,7 +41,7 @@ app.get("/programs", (req, res) => {
 // REQUEST
 /////////////////////////////////////////////
 var options = {
-  url: 'https://api-staging.tv.comhem.se/webapi/channel',
+  url: 'http://83.255.232.105:8080/webapi/events/current',
   // url: 'https://api-staging.tv.comhem.se/webapi/system',
   headers: {
     'webapi-version' : "99",
@@ -51,6 +51,7 @@ var options = {
 const callback = (error, response, body) => {
   if (!error && response.statusCode == 200) {
     apiResponse = JSON.parse(body);
+      console.log(apiResponse);
   } else {
     console.log(error);
   }

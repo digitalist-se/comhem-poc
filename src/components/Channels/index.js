@@ -12,7 +12,6 @@ class Channels extends React.Component {
   render() {
     const { channels, fetched} = this.props.channels;
 
-
     return (
       <div>
         <h2>Kanaler</h2>
@@ -23,10 +22,9 @@ class Channels extends React.Component {
               return <Channel
                 key= {i}
                 channelName= {channel.name}
-                prgSvcID= {channel.prgSvcID}
-                qualifiers = {channel.qualifiers}
                 darkImage = {channel.imageOnDarkURL}
                 lightImage = {channel.imageOnLightURL}
+                events = {channel.events}
                 />;
             }) : null
           }
