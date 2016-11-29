@@ -1,5 +1,8 @@
 import React from 'react';
 import Event from '../Event'
+//import { connect } from "react-redux";
+//
+//import { getChannels } from "../../actions/ChannelActions";
 
 export default class Channel extends React.Component {
 
@@ -12,9 +15,14 @@ export default class Channel extends React.Component {
 
 
   swipeEvents(direction){
+
+    this.props.direction(direction)
+
     let newSwipe = this.state.swipe;
 
     if (direction === 'left') {
+      //this.props.dispatch(getChannels(direction));
+
       newSwipe += 600;
 
 
@@ -25,6 +33,8 @@ export default class Channel extends React.Component {
       })
     }
     else {
+      //this.props.dispatch(getChannels(direction));
+
       newSwipe -= 600;
       this.setState({
         swipe: newSwipe
@@ -53,6 +63,8 @@ export default class Channel extends React.Component {
                 eventName={event.programName}
                 eventImage={event.imageURL}
                 eventDesc={event.description}
+                eventEnd={event.ends}
+                eventStart={event.starts}
                 />
             })}
           </div>

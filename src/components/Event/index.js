@@ -3,7 +3,7 @@ import React from 'react';
 export default class Event extends React.Component {
 
   render() {
-    const { eventName, eventImage, eventDesc } = this.props;
+    const { eventName, eventImage, eventDesc, eventEnd, eventStart } = this.props;
 
     return (
       <div className="Event">

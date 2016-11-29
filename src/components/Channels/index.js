@@ -5,9 +5,22 @@ import { getChannels } from "../../actions/ChannelActions";
 
 class Channels extends React.Component {
 
+  constructor(props) {
+    super(props)
+
+    this.direction = this.direction.bind(this);
+
+  }
+
+
   componentWillMount() {
     this.props.dispatch(getChannels());
   }
+  direction(direction) {
+    console.log(direction)
+    this.props.dispatch(getChannels(direction));
+  }
+
 
   render() {
     const { channels, fetched} = this.props.channels;
@@ -20,13 +33,14 @@ class Channels extends React.Component {
             fetched ?
             channels.map( function (channel, i) {
               return <Channel
+                direction = {this.direction}
                 key= {i}
                 channelName= {channel.name}
                 darkImage = {channel.imageOnDarkURL}
                 lightImage = {channel.imageOnLightURL}
                 events = {channel.events}
                 />;
-            }) : null
+            },this) : null
           }
         </ul>
       </div>
