@@ -2,23 +2,20 @@ import React from 'react';
 import Channel from '../Channel/';
 import { connect } from "react-redux";
 import { getChannels } from "../../actions/ChannelActions";
+import { getChannelEvents } from "../../actions/ChannelActions";
 
 class Channels extends React.Component {
 
   constructor(props) {
     super(props)
-
     this.direction = this.direction.bind(this);
-
   }
-
 
   componentWillMount() {
     this.props.dispatch(getChannels());
   }
-  direction(direction) {
-    console.log(direction)
-    this.props.dispatch(getChannels(direction));
+  direction(direction, channelID) {
+    this.props.dispatch(getChannelEvents(direction, channelID));
   }
 
 
@@ -35,9 +32,10 @@ class Channels extends React.Component {
               return <Channel
                 direction = {this.direction}
                 key= {i}
-                channelName= {channel.name}
+                channelName= {channel.channelName}
                 darkImage = {channel.imageOnDarkURL}
                 lightImage = {channel.imageOnLightURL}
+                channelID = {channel.channelID}
                 events = {channel.events}
                 />;
             },this) : null

@@ -26,13 +26,14 @@ app.use(allowCrossDomain);
 app.use(express.static(__dirname+'/public/proxy.json'));
 app.get("/channels", (req, res) => {
  res.sendFile(path.resolve(__dirname+'/public',"proxy.json"))
- console.log(req.param("direction"))
-
  console.log(apiResponse);
  res.send(apiResponse);
 });
-app.get("/programs", (req, res) => {
+app.get("/channel-event", (req, res) => {
  res.sendFile(path.resolve(__dirname+'/public',"proxy.json"))
+    console.log(req.param("direction"));
+    console.log(req.param("channelID"));
+    console.log(apiResponse);
  res.send(apiResponse);
 });
 
@@ -44,7 +45,7 @@ app.get("/programs", (req, res) => {
 // REQUEST
 /////////////////////////////////////////////
 var options = {
-  url: 'http://83.255.232.105:8080/webapi/events/current?forwardCount=2&backwardCount=3',
+  url: 'http://83.255.232.105:8080/webapi/events/current?forwardCount=2',
   // url: 'https://api-staging.tv.comhem.se/webapi/system',
   headers: {
     'webapi-version' : "99",
