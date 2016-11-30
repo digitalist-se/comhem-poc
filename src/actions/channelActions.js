@@ -1,12 +1,9 @@
 import axios from "axios";
 // Get all the channels with the current program.
-export function getChannels(direction) {
+export function getChannels() {
   return function(dispatch) {
     // axios.get("localhost:8080")
     axios.get("http://localhost:8080/channels",{
-          params: {
-            direction: direction
-          }
     }
 
     )
