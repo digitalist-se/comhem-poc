@@ -2,8 +2,9 @@ const express = require("express");
 const path = require("path");
 const port = process.env.PORT || 8080;
 const app = express();
-const request = require('request');
+const request = require('request-promise');
 var apiResponse = null;
+var get = "";
 
 /////////////////////////////////////////////
 // ALLOW CORS TO localhost:3000 dev server
@@ -22,46 +23,62 @@ app.use(allowCrossDomain);
 
 
 
-app.use(express.static(__dirname+'/public/proxy.json'));
+//app.use(express.static(__dirname+'/public/proxy.json'));
 app.get("/channels", (req, res) => {
- res.sendFile(path.resolve(__dirname+'/public',"proxy.json"))
- console.log(apiResponse);
- res.send(apiResponse);
+ //res.sendFile(path.resolve(__dirname+'/public',"proxy.json"))
+
+    var options = {
+        url: 'http://83.255.232.105:8080/webapi/events/current?forwardCount=2',
+        // url: 'https://api-staging.tv.comhem.se/webapi/system',
+        headers: {
+            'webapi-version' : "99",
+            'api-key': "HZvTr4YV8B"
+        }
+    };
+
+    request(options).then(function (body){
+        apiResponse = JSON.parse(body);
+        res.send(apiResponse);
+    })
+        .catch(function (err) {
+            console.log(err);
+        });
 });
-app.get("/programs", (req, res) => {
- res.sendFile(path.resolve(__dirname+'/public',"proxy.json"))
- res.send(apiResponse);
-});
 
 
 
 
 
-/////////////////////////////////////////////
-// REQUEST
-/////////////////////////////////////////////
-var options = {
-  // url: 'https://api-staging.tv.comhem.se/webapi/channel',
-  url: 'https://83.255.232.105/webapi/events/current',
-  headers: {
-    'webapi-version' : "99",
-    'api-key': "HZvTr4YV8B" 
-  }
-};
-const callback = (error, response, body) => {
+app.get("/channel-event", (req, res) => {
+ //res.sendFile(path.resolve(__dirname+'/public',"proxy.json"))
+    if (req.param("direction") == 'right') {
+        forward = 4;
+    }
 
 
-  if (!error && response.statusCode === 200) {
-    apiResponse = JSON.parse(body);
+    var options = {
+        url: 'http://83.255.232.105:8080/webapi/events/current?forwardCount='+ forward +'&channelID='+ req.param("channelID"),
+        headers: {
+            'webapi-version' : "99",
+            'api-key': "HZvTr4YV8B"
+        }
+    };
+    const callback = (error, response, body) => {
+        if (!error && response.statusCode == 200) {
+            apiResponse = JSON.parse(body);
+            console.log(apiResponse);
+        } else {
+            console.log(error);
+        }
+    }
+
+    request(options).then(function (body){
+        apiResponse = JSON.parse(body);
+        res.send(apiResponse);
+    });
+
     console.log(apiResponse);
-  } else {
-    console.log(error);
-  }
-}
-request.get(options, callback);
-
-
-
+});
 
 
 
