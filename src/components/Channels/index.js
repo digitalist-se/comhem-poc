@@ -15,9 +15,8 @@ class Channels extends React.Component {
     this.props.dispatch(getChannels());
   }
 
-
-  direction(direction, channelID, index) {
-    this.props.dispatch(getChannelEvents(direction, channelID, index));
+  direction(direction, channelID, index, eventLength) {
+    this.props.dispatch(getChannelEvents(direction, channelID, index, eventLength));
   }
 
 

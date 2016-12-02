@@ -17,8 +17,7 @@ export default class Channel extends React.Component {
   swipeEvents(direction){
     // Send direction and channel id to fetch the next events.
     let channelID = this.props.channelID;
-
-    this.props.direction(direction, channelID, this.props.index);
+    this.props.direction(direction, channelID, this.props.index, this.props.events.length);
 
     let newSwipe = this.state.swipe;
 
