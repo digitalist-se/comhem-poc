@@ -12,5 +12,13 @@ export default function channels(state = {
         fetched: true
       }
     }
+    else if(action.type === "CHANNELS_EVENTS_FETCHED") {
+      var newState = Object.assign({},state);
+      newState.channels[action.payload.index] = action.payload.response.channels[0]
+      return newState;
+    }
+
+
+
     return state;
 }

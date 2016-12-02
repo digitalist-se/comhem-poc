@@ -8,7 +8,7 @@ export default class Event extends React.Component {
     return (
       <div className="Event">
         <div className="Event-image">
-          <img src={eventImage} />
+          <img src={eventImage} role="presentation" alt="test"/>
         </div>
         <div className="Event-info">
           <h3>{eventName}</h3>

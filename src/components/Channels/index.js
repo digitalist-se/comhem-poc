@@ -14,14 +14,13 @@ class Channels extends React.Component {
   componentWillMount() {
     this.props.dispatch(getChannels());
   }
-  direction(direction, channelID) {
-    this.props.dispatch(getChannelEvents(direction, channelID));
+  direction(direction, channelID, index) {
+    this.props.dispatch(getChannelEvents(direction, channelID, index));
   }
 
 
   render() {
-    const { channels, fetched} = this.props.channels;
-
+    const { channels, fetched}=this.props.channels;
     return (
       <div>
         <h2>Kanaler</h2>
@@ -30,13 +29,14 @@ class Channels extends React.Component {
             fetched ?
             channels.map( function (channel, i) {
               return <Channel
-                direction = {this.direction}
-                key= {i}
-                channelName= {channel.channelName}
-                darkImage = {channel.imageOnDarkURL}
-                lightImage = {channel.imageOnLightURL}
-                channelID = {channel.channelID}
-                events = {channel.events}
+                direction={this.direction}
+                key={i}
+                index={i}
+                channelName={channel.channelName}
+                darkImage={channel.imageOnDarkURL}
+                lightImage={channel.imageOnLightURL}
+                channelID={channel.channelID}
+                events={channel.events}
                 />;
             },this) : null
           }

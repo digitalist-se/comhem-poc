@@ -18,7 +18,7 @@ export default class Channel extends React.Component {
     // Send direction and channel id to fetch the next events.
     let channelID = this.props.channelID;
 
-    this.props.direction(direction, channelID);
+    this.props.direction(direction, channelID, this.props.index);
 
     let newSwipe = this.state.swipe;
 
@@ -48,7 +48,7 @@ export default class Channel extends React.Component {
     return (
       <li className="Channel">
         <div className="Channel-col-icon">
-          <img src= {lightImage} />
+          <img src= {lightImage} role="presentation" alt="test"/>
         </div>
         <div className="Channel-col-preview">
           <div className="Channel-arrow Channel-arrow--left" onClick={() => this.swipeEvents("left")}></div>

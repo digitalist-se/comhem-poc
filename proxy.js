@@ -19,16 +19,11 @@ const allowCrossDomain = (req, res, next) => {
 // APP CONFIGURATION
 /////////////////////////////////////////////
 app.use(allowCrossDomain);
-
-
-
-
 //app.use(express.static(__dirname+'/public/proxy.json'));
 app.get("/channels", (req, res) => {
  //res.sendFile(path.resolve(__dirname+'/public',"proxy.json"))
-
     var options = {
-        url: 'http://83.255.232.105:8080/webapi/events/current?forwardCount=2',
+        url: 'http://83.255.232.105:8080/webapi/events/current?forwardCount=1',
         // url: 'https://api-staging.tv.comhem.se/webapi/system',
         headers: {
             'webapi-version' : "99",
@@ -47,13 +42,11 @@ app.get("/channels", (req, res) => {
 
 
 
-
-
 app.get("/channel-event", (req, res) => {
  //res.sendFile(path.resolve(__dirname+'/public',"proxy.json"))
     if (req.param("direction") == 'right') {
-        forward = 4;
-    }
+        forward = 8;
+    } 
 
 
     var options = {
