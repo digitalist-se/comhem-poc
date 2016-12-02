@@ -14,6 +14,8 @@ class Channels extends React.Component {
   componentWillMount() {
     this.props.dispatch(getChannels());
   }
+
+
   direction(direction, channelID, index) {
     this.props.dispatch(getChannelEvents(direction, channelID, index));
   }

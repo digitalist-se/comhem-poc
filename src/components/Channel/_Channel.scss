@@ -1,3 +1,7 @@
+$icon-width: 160px;
+$arrow-width: 40px;
+
+
 .Channel {
   background-color: $color-channel;
   margin-bottom: 20px;
@@ -18,23 +22,37 @@
 
 .Channel-col-preview {
   position: relative;
-  width: calc(100% - 160px - 50px);
+  margin: 0 auto;
+  width: calc(100% - #{$icon-width});
   white-space: nowrap;
   overflow: hidden;
   font-size: 0;
 }
 .Channel-col-preview-inner{
-  transition: all .2s ease;
+  transition: all .4s ease;
+  margin: 0 auto;
+  width: calc(100% - #{2*$arrow-width})
 }
 
 .Channel-arrow {
-  background-color: blue;
+  background-color: $transparent-grey;
+  transition: all .2s ease;
   position: absolute;
   top: 0;
-  width: 50px;
+  width: $arrow-width;
   height: 100%;
   cursor: pointer;
   z-index: 999;
+  @include flex-position(center);
+  span {
+    display: block;
+    height: 30px;
+    width: 30px;
+    background: url("../images/arrow.svg") center center no-repeat;
+  }
+  &:hover {
+    background-color: black;
+  }
 }
 
 .Channel-arrow--right {
@@ -43,4 +61,7 @@
 
 .Channel-arrow--left {
   left: 0;
+  span {
+    transform: rotate(180deg);
+  }
 }

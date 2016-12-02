@@ -43,14 +43,21 @@ app.get("/channels", (req, res) => {
 
 
 app.get("/channel-event", (req, res) => {
- //res.sendFile(path.resolve(__dirname+'/public',"proxy.json"))
+
+
+
     if (req.param("direction") == 'right') {
-        forward = 8;
-    } 
+        itemCount = 8;
+        direction = "forwardCount";
+
+    } else if(req.param("direction") == 'left') {
+        itemCount = 8
+        direction = "backwardCount";
+    }
 
 
     var options = {
-        url: 'http://83.255.232.105:8080/webapi/events/current?forwardCount='+ forward +'&channelID='+ req.param("channelID"),
+        url: 'http://83.255.232.105:8080/webapi/events/current?'+ direction + '=' + itemCount +'&channelID='+ req.param("channelID"),
         headers: {
             'webapi-version' : "99",
             'api-key': "HZvTr4YV8B"

@@ -51,8 +51,8 @@ export default class Channel extends React.Component {
           <img src= {lightImage} role="presentation" alt="test"/>
         </div>
         <div className="Channel-col-preview">
-          <div className="Channel-arrow Channel-arrow--left" onClick={() => this.swipeEvents("left")}></div>
-          <div className="Channel-arrow Channel-arrow--right" onClick={() => this.swipeEvents("right")}></div>
+          <div className="Channel-arrow Channel-arrow--left" onClick={() => this.swipeEvents("left")}><span></span></div>
+          <div className="Channel-arrow Channel-arrow--right" onClick={() => this.swipeEvents("right")}><span></span></div>
           <div className="Channel-col-preview-inner" style={styles}>
             {events.map(function(event, i){
               return <Event

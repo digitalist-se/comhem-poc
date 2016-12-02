@@ -1,9 +1,10 @@
 .Event {
   display: inline-block;
+  // margin-left: -1px;
   background-color: $color-event;
   border-left: 2px solid #fff;
   width: 600px;
-  height: 100%;
+  white-space: normal;
 }
 
 .Event-image {
