@@ -6,10 +6,11 @@ import Event from '../Event'
 
 export default class Channel extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      swipe: 0
+      swipe: (((props.events.length-2) * 600)*-1),
+      fetched: 1
     }
   }
 
@@ -19,13 +20,11 @@ export default class Channel extends React.Component {
     let channelID = this.props.channelID;
     this.props.direction(direction, channelID, this.props.index, this.props.events.length);
 
+    
     let newSwipe = this.state.swipe;
-
     if (direction === 'left') {
       newSwipe += 600;
-
       newSwipe > 0 ? newSwipe = 0 : null
-
       this.setState({
         swipe: newSwipe
       })
@@ -41,7 +40,7 @@ export default class Channel extends React.Component {
   render() {
     const { channelName, prgSvcID, events, darkImage, lightImage, qualifiers } = this.props;
     const styles = {
-      transform: `translate(${this.state.swipe}px)`
+      transform: `translateX(${this.state.swipe}px)`
     };
 
     return (

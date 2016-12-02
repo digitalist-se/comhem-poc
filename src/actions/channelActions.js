@@ -29,7 +29,6 @@ export function getChannelEvents(direction, channel, index, eventCount) {
         .then((response) => {
           dispatch({type: "CHANNELS_EVENTS_FETCHED", payload: {
             response: response.data,
-            direction: direction,
             index: index
           }}
           )
