@@ -41,16 +41,19 @@ app.get("/programs", (req, res) => {
 // REQUEST
 /////////////////////////////////////////////
 var options = {
-  url: 'https://api-staging.tv.comhem.se/webapi/channel',
-  // url: 'https://api-staging.tv.comhem.se/webapi/system',
+  // url: 'https://api-staging.tv.comhem.se/webapi/channel',
+  url: 'https://83.255.232.105/webapi/events/current',
   headers: {
     'webapi-version' : "99",
-    'api-key': "HZvTr4YV8B"
+    'api-key': "HZvTr4YV8B" 
   }
 };
 const callback = (error, response, body) => {
-  if (!error && response.statusCode == 200) {
+
+
+  if (!error && response.statusCode === 200) {
     apiResponse = JSON.parse(body);
+    console.log(apiResponse);
   } else {
     console.log(error);
   }
