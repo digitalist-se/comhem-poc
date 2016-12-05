@@ -11,7 +11,7 @@ export default class App extends React.Component {
       <Router>
         <div className="App">
           <div className="Site-grid">
-            <h1>Comhem POC</h1>
+            <a href="/" className="Site-logo"><h1>Comhemplay</h1></a>
             <Channels />
           </div>
         </div>

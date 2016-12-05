@@ -9,7 +9,7 @@ var get = "";
 // ALLOW CORS TO localhost:3000 dev server
 /////////////////////////////////////////////
 const allowCrossDomain = (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
     res.header("Access-Control-Allow-Headers", "Content-Type");
     next();
@@ -36,10 +36,11 @@ app.get("/channels", (req, res) => {
 });
 
 app.get("/channel-event", (req, res) => {
-    var eventCount = req.param("eventCount");
-    console.log(eventCount);
+    var query = req.query;
+    console.log(query.eventCount, "eventCount");
+
     var options = {
-        url: "http://83.255.232.105:8080/webapi/events/current?forwardCount="+ eventCount +"&channelID="+ req.param("channelID"),
+        url: "http://83.255.232.105:8080/webapi/events/current?forwardCount="+ query.eventCount +"&channelID="+ query.channelID,
         headers: {
             "webapi-version" : "99",
             "api-key": "HZvTr4YV8B"

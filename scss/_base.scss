@@ -20,10 +20,31 @@ li {
 h3 {
   margin: 0;
 }
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 
 .Site-grid {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
   padding-right: 15px;
   padding-left: 15px;
+  // transition: all .2s ease;
+  // animation: fade-in 3s ease;
+
 }
+.Site-logo {
+  display: block;
+  text-decoration: none;
+  background: url("../images/logo.svg") no-repeat left center;
+  width: 130px;
+  height: 50px;
+  h1 {
+    color: transparent;
+  }
+}
+// height: 30px;
+// width: 30px;
+// background: url("../images/arrow.svg") center center no-repeat;

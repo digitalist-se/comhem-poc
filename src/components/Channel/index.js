@@ -16,11 +16,8 @@ export default class Channel extends React.Component {
 
 
   swipeEvents(direction){
-    // Send direction and channel id to fetch the next events.
     let channelID = this.props.channelID;
-    this.props.direction(direction, channelID, this.props.index, this.props.events.length);
 
-    
     let newSwipe = this.state.swipe;
     if (direction === 'left') {
       newSwipe += 600;
@@ -30,6 +27,10 @@ export default class Channel extends React.Component {
       })
     }
     else {
+
+      // this.props.direction(direction, channelID, this.props.index, this.props.events.length);
+
+
       newSwipe -= 600;
       this.setState({
         swipe: newSwipe
@@ -38,7 +39,7 @@ export default class Channel extends React.Component {
   }
 
   render() {
-    const { channelName, prgSvcID, events, darkImage, lightImage, qualifiers } = this.props;
+    const { channelName, prgSvcID, events, darkImage, lightImage, qualifiers, currentTime } = this.props;
     const styles = {
       transform: `translateX(${this.state.swipe}px)`
     };
@@ -60,8 +61,9 @@ export default class Channel extends React.Component {
                 eventDesc={event.description}
                 eventEnd={event.ends}
                 eventStart={event.starts}
+                currentTime = {currentTime}
                 />
-            })}
+            }, this)}
           </div>
       </div>
       </li>

@@ -8,6 +8,11 @@ class Channels extends React.Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      currentTime: Date.now()
+    }
+
+
     this.direction = this.direction.bind(this);
   }
 
@@ -19,12 +24,11 @@ class Channels extends React.Component {
     this.props.dispatch(getChannelEvents(direction, channelID, index, eventLength));
   }
 
-
   render() {
     const { channels, fetched}=this.props.channels;
     return (
       <div>
-        <h2>Kanaler</h2>
+        <h4>Proof of concept</h4>
         <ul className="Channels">
           {
             fetched ?
@@ -38,6 +42,7 @@ class Channels extends React.Component {
                 lightImage={channel.imageOnLightURL}
                 channelID={channel.channelID}
                 events={channel.events}
+                currentTime = {this.state.currentTime}
                 />;
             },this) : null
           }
