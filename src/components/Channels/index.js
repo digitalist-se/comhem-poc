@@ -21,6 +21,8 @@ class Channels extends React.Component {
   }
 
   direction(direction, channelID, index, eventLength) {
+    console.log(eventLength);
+    
     this.props.dispatch(getChannelEvents(direction, channelID, index, eventLength));
   }
 

@@ -10,31 +10,40 @@ export default class Channel extends React.Component {
     super(props)
     this.state = {
       swipe: (((props.events.length-2) * 600)*-1),
-      fetched: 1
+      fetched: 1 // How many into the future we will fetch
     }
   }
-
-
   swipeEvents(direction){
     let channelID = this.props.channelID;
+    let fetched = this.state.fetched;
 
-    let newSwipe = this.state.swipe;
+    let swipe = this.state.swipe;
+
     if (direction === 'left') {
-      newSwipe += 600;
-      newSwipe > 0 ? newSwipe = 0 : null
+      swipe += 600;
+      fetched--;
+      swipe > 0 ? swipe = 0 : null
+      fetched < 0 ? fetched = 0 : null
+
       this.setState({
-        swipe: newSwipe
+        swipe,
+        fetched
       })
     }
     else {
+      this.props.direction(direction, channelID, this.props.index, fetched);
+        
+      fetched++;
 
-      // this.props.direction(direction, channelID, this.props.index, this.props.events.length);
-
-
-      newSwipe -= 600;
+      swipe -= 600;
       this.setState({
-        swipe: newSwipe
+        swipe,
+        fetched
       })
+
+
+      console.log(this.state.swipe);
+      console.log(this.state.fetched);
     }
   }
 

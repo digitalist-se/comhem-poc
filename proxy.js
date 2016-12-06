@@ -38,9 +38,9 @@ app.get("/channels", (req, res) => {
 app.get("/channel-event", (req, res) => {
     var query = req.query;
     console.log(query.eventCount, "eventCount");
-
+      
     var options = {
-        url: "http://83.255.232.105:8080/webapi/events/current?forwardCount="+ query.eventCount +"&channelID="+ query.channelID,
+        url: "http://83.255.232.105:8080/webapi/events/current?backwardCount=15&forwardCount="+ query.eventCount +"&channelID="+ query.channelID,
         headers: {
             "webapi-version" : "99",
             "api-key": "HZvTr4YV8B"

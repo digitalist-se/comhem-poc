@@ -52,7 +52,7 @@ export default class Event extends React.Component {
         <div className="Event-info">
           <h3>{eventName}</h3>
           <span className="Event-description">{eventDesc}</span>
-          <p>{startHour +":"+ startMinute} - {endHour +":"+ endMinute}</p>
+          <p className="Event-timespan">{startHour +":"+ startMinute} - {endHour +":"+ endMinute}</p>
           <div className="Event-progressbar" ><span style={styles}></span></div>
         </div>
       </div>
